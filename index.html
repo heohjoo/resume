@@ -1,1 +1,581 @@
-file:///C:/Users/user/Downloads/%EC%9E%84%ED%97%8C%EC%A3%BC%20%EC%9D%B4%EB%A0%A5%EC%84%9C.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임헌주 이력서 - 타임라인 스타일</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .profile-header {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #4299e1, #667eea, #764ba2);
+            border-radius: 26px;
+            z-index: -1;
+        }
+        
+        .profile-name {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .profile-title {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 32px;
+        }
+        
+        .highlight-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+        
+        .highlight-metric {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-metric:hover {
+            border-color: #4299e1;
+            transform: translateY(-2px);
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4299e1;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .timeline-section {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4299e1, #667eea, #764ba2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-left: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -52px;
+            top: 32px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4299e1, #667eea);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+        
+        .company-role {
+            font-size: 16px;
+            color: #718096;
+        }
+        
+        .company-period {
+            font-size: 14px;
+            color: #a0aec0;
+            background: #f7fafc;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+        
+        .achievements-list {
+            margin-top: 20px;
+        }
+        
+        .achievement-category {
+            margin-bottom: 24px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .category-content {
+            background: #f8faff;
+            border: 1px solid #e6f3ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .achievement-desc {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .metrics-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .metric-tag {
+            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .section-divider {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .divider-text {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            font-weight: 600;
+            color: #4a5568;
+            display: inline-block;
+        }
+
+        .skills-section {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .skills-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: #f7fafc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a5568;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #4299e1;
+            background: #e6f3ff;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-section {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                margin-left: 10px;
+            }
+            
+            .timeline-dot {
+                left: -32px;
+            }
+            
+            .highlight-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .profile-name {
+                font-size: 32px;
+            }
+
+            .company-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <h1 class="profile-name">임헌주</h1>
+            <p class="profile-title">물류운영 전문가 • B2B 영업 전문가 • 데이터 기반 성과창출</p>
+            <div class="contact-info">
+                📞 +821083216897 • 📧 gjswndla@naver.com
+            </div>
+            
+            <div class="highlight-metrics">
+                <div class="highlight-metric">
+                    <span class="metric-value">2,400%</span>
+                    <div class="metric-label">매출 성장</div>
+                </div>
+                <div class="highlight-metric">
+                    <span class="metric-value">50%</span>
+                    <div class="metric-label">KPI 성장률</div>
+                </div>
+                <div class="highlight-metric">
+                    <span class="metric-value">88%</span>
+                    <div class="metric-label">고객만족도</div>
+                </div>
+                <div class="highlight-metric">
+                    <span class="metric-value">100%</span>
+                    <div class="metric-label">재계약률</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline-section">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">부릭</h3>
+                        <p class="company-role">지사영업관리 및 영업개발 담당</p>
+                    </div>
+                    <div class="company-period">2024.04 - 2025.05</div>
+                </div>
+                
+                <div class="achievements-list">
+                    <div class="achievement-category">
+                        <h4 class="category-title">🎯 프라임 고객 창출을 위한 다각화 전략</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                월 3-4회 세미나 및 지역 상인회 참석을 통한 신뢰관계 구축으로 체계적인 네트워킹을 실시했습니다. 
+                                '배달세상' 카페 등 온라인 커뮤니티를 적극 활용하여 지사장 컨택처를 발굴하고, 
+                                콜드콜 전략으로 접촉 고객사 대비 35%라는 높은 계약 성사율을 기록했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">신규 계약 2건</span>
+                                <span class="metric-tag">70,000건 물동량</span>
+                                <span class="metric-tag">계약 성사율 35%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-category">
+                        <h4 class="category-title">🚀 프로모션 기획 및 운영 혁신</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                배송 기피 구역 특화 프로모션을 설계하여 월 3,000천원 예산으로 운영했습니다. 
+                                묶음배송 시스템 도입으로 평균 배송단가 12% 절감을 달성하고, 
+                                리드타임을 15% 단축하여 피크타임 배송 완료율 95%를 기록했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">배송단가 12% 절감</span>
+                                <span class="metric-tag">배송시간 15% 단축</span>
+                                <span class="metric-tag">완료율 95% 달성</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-category">
+                        <h4 class="category-title">📊 파트너십 관리 및 플랫폼 확장</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                지사별 수익성 분석을 통해 프로모션 효과로 상점 입점율 30% 증가와 M/S 50% 달성을 이뤘습니다.
+                                지역 내 플랫폼 활성화로 추가 마케팅비 없이 자연스러운 업셀링을 달성하고,
+                                현장 라이더 업무를 직접 병행하여 현장 이해도 향상 및 고객 접점을 확대했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">상점 입점율 30% 증가</span>
+                                <span class="metric-tag">M/S 50% 달성</span>
+                                <span class="metric-tag">자연 업셀링</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">굿플레이스</h3>
+                        <p class="company-role">B2B 영업 및 B2B 운영총괄</p>
+                    </div>
+                    <div class="company-period">2021.11 - 2023.11</div>
+                </div>
+                
+                <div class="achievements-list">
+                    <div class="achievement-category">
+                        <h4 class="category-title">🏢 사업 확장 및 무인편의점 런칭 총괄</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                구독형, 판매형, 복지형 서비스를 기획하여 콜드콜 및 콜드메일을 통한 미팅 주선을 성공시켰습니다.
+                                집기(냉장고, POS) 벤더사 일정 조율 및 편의점 레이아웃 컨설팅을 제공하여 입점 프로젝트를 관리했으며,
+                                현대, 신세계, 카카오, 컴투스 등 30-40개 점포 운영총괄로 월 2.4억원에서 60억원으로 매출을 확대했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">매출 2,400% 성장</span>
+                                <span class="metric-tag">30-40개 점포 운영</span>
+                                <span class="metric-tag">대기업 포트폴리오</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-category">
+                        <h4 class="category-title">⚡ 운영 효율성 최적화 및 프로모션 기획</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                피크타임 분석 기반 파트타이머 전략적 배치로 간접 비용 10% 절감을 달성했습니다.
+                                점간이동 시스템을 통한 재고관리 최적화와 고매출 상품 face 확대로 결품 클레임을 최소화했으며,
+                                30 DAY 조식 프로그램과 스페셜 데이 특판을 기획하여 부가 매출을 창출했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">간접 비용 10% 절감</span>
+                                <span class="metric-tag">재고관리 최적화</span>
+                                <span class="metric-tag">조식 솔루션 제안</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-category">
+                        <h4 class="category-title">📊 고객만족도 및 서비스 품질 관리</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                구글폼을 활용한 정기 만족도 조사 시스템을 구축하여 고객만족도 88%를 달성했습니다.
+                                무인편의점 솔루션 도입으로 기업 복지 이미지 향상에 기여하고,
+                                담당 기간 중 고객 이탈 제로를 달성하여 재계약률 100%를 유지했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">고객만족도 88%</span>
+                                <span class="metric-tag">재계약률 100%</span>
+                                <span class="metric-tag">고객 이탈 제로</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">주식회사 유베이스</h3>
+                        <p class="company-role">OB콜 사원</p>
+                    </div>
+                    <div class="company-period">2020.09 - 2020.10</div>
+                </div>
+                
+                <div class="achievements-list">
+                    <div class="achievement-category">
+                        <h4 class="category-title">📞 고객지원 및 CS 업무</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                삼성 웰스토리 CS 업무를 담당하여 일 50건의 IB, OB 콜 업무를 처리했습니다.
+                                제품 구매시 지급되는 사은품 관련 제반 CS 및 주문, 배송 관련 CS 처리 업무를 수행했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">일 50건 CS 처리</span>
+                                <span class="metric-tag">IB/OB 콜 업무</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">이마트24</h3>
+                        <p class="company-role">직영점 운영 및 가맹점 지원</p>
+                    </div>
+                    <div class="company-period">2019.04 - 2020.09</div>
+                </div>
+                
+                <div class="achievements-list">
+                    <div class="achievement-category">
+                        <h4 class="category-title">📈 데이터 기반 상품 전략</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                월별 트렌드 분석을 통한 직영점 테스트 후 가맹점 확산 모델을 구축했습니다.
+                                매월 변동 행사상품을 사전 발주하여 상품 이익률 10% 향상을 달성하고,
+                                체화재고 소진을 위한 타임세일 활용으로 재고회전율 25% 개선을 이뤘습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">이익률 10% 향상</span>
+                                <span class="metric-tag">재고회전율 25% 개선</span>
+                                <span class="metric-tag">트렌드 분석</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-category">
+                        <h4 class="category-title">💼 운영 효율성 및 인력 관리 최적화</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                시간대별 코어업무를 체계화하여 오전(물류, 진열, 판매준비), 오후(피크대응, 교대근무), 야간(판매, 검수, 프라이싱) 업무를 최적화했습니다.
+                                유휴시간 발생 시 인근 점포 순환배치 시스템을 도입하여 인력효율성을 향상시키고,
+                                31명 인력으로 월 3,000만원 매출을 달성했습니다(1인당 월매출 97만원).
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">월 3,000만원 매출</span>
+                                <span class="metric-tag">31명 인력 관리</span>
+                                <span class="metric-tag">1인당 97만원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-category">
+                        <h4 class="category-title">🤝 가맹점 지원 및 수익성 개선</h4>
+                        <div class="category-content">
+                            <p class="achievement-desc">
+                                인근 점포에서 호빵기, 전자레인지 등을 확보하여 신상품 발주 환경을 조성하고,
+                                점주나라 등을 통해 창업희망 점주를 연결하여 신규 점주를 구인했습니다.
+                                월평균 120개 신상품 100% 도입을 달성하여 신상품 매출비중 15%를 확보하고,
+                                고회전 상품 중심 발주로 점포 수익성을 지속 개선했습니다.
+                            </p>
+                            <div class="metrics-tags">
+                                <span class="metric-tag">신상품 도입 100%</span>
+                                <span class="metric-tag">신상품 매출비중 15%</span>
+                                <span class="metric-tag">수익성 지속 개선</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <h3 class="skills-title">🛠 보유 기술 및 자격</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">Slack</div>
+                <div class="skill-tag">Excel</div>
+                <div class="skill-tag">영업관리</div>
+                <div class="skill-tag">B2B</div>
+                <div class="skill-tag">영업지원</div>
+                <div class="skill-tag">PPT</div>
+                <div class="skill-tag">Word</div>
+                <div class="skill-tag">유통관리사 2급</div>
+                <div class="skill-tag">DIAT 정보활용능력</div>
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <h3 class="skills-title">🎓 학력</h3>
+            <div class="achievement-desc" style="text-align: center; padding: 20px;">
+                <strong>유한대학교</strong> 유통물류과 전문학사<br>
+                2013.03 - 2019.02 졸업
+            </div>
+        </div>
+        
+        <div class="section-divider">
+            <div class="divider-text">
+                📧 gjswndla@naver.com • 📞 +821083216897
+            </div>
+        </div>
+    </div>
+</body>
+</html>
